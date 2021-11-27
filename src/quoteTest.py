@@ -4,12 +4,12 @@ from dotenv import load_dotenv
 load_dotenv() 
 
 TOKEN = os.getenv('PAPERQUOTES_TOKEN')
-AUTHOR = 'Einstein'
-TEXTFILE = 'paperquotes.txt'
+AUTHOR = 'Gibran'
+TEXTFILE = 'quotable.txt'
 
-PAPERQUOTES_API_ENDPOINT = "https://api.paperquotes.com/apiv1/quotes/?author={}".format(AUTHOR)
+QUOTABLE_API_ENDPOINT = "https://api.quotable.io/search/quotes?query={}&fields=author".format(AUTHOR)
 
-response = requests.get(PAPERQUOTES_API_ENDPOINT, headers={'Authorization': 'TOKEN {}'.format(TOKEN)})
+response = requests.get(QUOTABLE_API_ENDPOINT)
 
 if response.ok:
 
@@ -19,6 +19,6 @@ if response.ok:
 
     with open(TEXTFILE, 'w') as f:
         for quote in quotes:
-            # f.write(quote.get('quote'))
-            # f.write('\n')
-            print(quote.get('quote'))
+            f.write(quote.get('content'))
+            f.write('\n')
+            print(quote.get('content'))
