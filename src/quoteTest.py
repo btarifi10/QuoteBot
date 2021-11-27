@@ -1,24 +1,14 @@
-import requests, json, os
-from dotenv import load_dotenv
+import wikiquotes
 
-load_dotenv() 
+AUTHOR = 'The Prophet'
+TEXTFILE1 = 'theprophet.txt'
 
-TOKEN = os.getenv('PAPERQUOTES_TOKEN')
-AUTHOR = 'Einstein'
-TEXTFILE = 'paperquotes.txt'
+quotes = wikiquotes.get_quotes(AUTHOR, "english")
 
-PAPERQUOTES_API_ENDPOINT = "https://api.paperquotes.com/apiv1/quotes/?author={}".format(AUTHOR)
+print("Number of quotes: ", len(quotes))
 
-response = requests.get(PAPERQUOTES_API_ENDPOINT, headers={'Authorization': 'TOKEN {}'.format(TOKEN)})
-
-if response.ok:
-
-    quotes = json.loads(response.text).get('results')
-
-    print("Size: ", len(quotes))
-
-    with open(TEXTFILE, 'w') as f:
-        for quote in quotes:
-            # f.write(quote.get('quote'))
-            # f.write('\n')
-            print(quote.get('quote'))
+with open(TEXTFILE1, 'w') as f1:
+    for quote in quotes:
+        # print(quote)
+        f1.write(quote)
+        f1.write('\n')

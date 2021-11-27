@@ -292,3 +292,11 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+src/paperquotes.txt
+src/khalil-gibran-quotes.txt
+src/theprophet.txt
+src/theprophetquotes.txt
+src/wikiquotes_long.txt
+src/wikiquotes.txt
+src/wikiquotes2.txt
+src/quotable.txt
