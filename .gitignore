@@ -300,3 +300,6 @@ src/wikiquotes_long.txt
 src/wikiquotes.txt
 src/wikiquotes2.txt
 src/quotable.txt
+config/config.env
+quote-txt-files/
+quotes.json

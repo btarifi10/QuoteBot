@@ -2,13 +2,16 @@
   "name": "quotebot",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/quoteBot.js",
   "scripts": {
     "test": "return 0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "quotebook-api": "^1.0.7"
+    "dotenv": "^10.0.0",
+    "quotebook-api": "^1.0.7",
+    "twit": "^2.2.11",
+    "twitter-api-v2": "^1.7.0"
   }
 }
