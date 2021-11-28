@@ -1,7 +1,7 @@
 const fs = require("fs")
 
 // Read quotes
-const QUOTE_FILE = "quotes.json"
+const QUOTE_FILE = "src/quotes.json"
 let quotes = []
 let numQuotes = 0
 let active = false
