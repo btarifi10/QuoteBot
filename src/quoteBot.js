@@ -29,7 +29,7 @@ function startQuoteBot() {
 // Post a quote daily
 
 let targetTime = new Date();
-targetTime.setHours(12)
+targetTime.setHours(10)
 targetTime.setMinutes(0)
 targetTime.setSeconds(0)
 targetTime.setMilliseconds(0)
