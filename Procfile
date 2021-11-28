@@ -1,1 +1,1 @@
- web: node src/quoteBot.js
+ worker: node src/quoteBot.js
