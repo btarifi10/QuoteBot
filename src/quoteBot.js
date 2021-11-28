@@ -1,16 +1,21 @@
 console.log("Starting bot...")
 const config = require("./config")
-const Twit  = require("twit")
+const TwitterApi = require('twitter-api-v2').TwitterApi;
 const { getRandomQuote } = require("./quoteService")
 
 const MS_IN_DAY = 24*60*60*1000;
 // Create new twit instance
-const T = new Twit(config)
+const twitterClient = new TwitterApi(
+    {appKey: config.consumer_key,
+    appSecret: config.consumer_secret,
+    accessToken: config.access_token,
+    accessSecret: config.access_token_secret}
+);
 
-function postQuote() {
+async function postQuote() {
 	const quote = getRandomQuote();
 	if(quote) {
-		T.post('statuses/update',{status: quote}, responseCallback)
+		await twitterClient.v2.tweet(quote);
         let timeNow = new Date();
         console.log(`[${timeNow.toISOString()}] Quote Posted: ${quote}`)
     }
@@ -27,8 +32,8 @@ function startQuoteBot(timeToStart) {
 // Post a quote daily
 
 let targetTime = new Date();
-targetTime.setHours(1)
-targetTime.setMinutes(27)
+targetTime.setHours(2)
+targetTime.setMinutes(2)
 targetTime.setSeconds(0)
 targetTime.setMilliseconds(0)
 
