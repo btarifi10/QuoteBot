@@ -41,6 +41,7 @@ if (diffTime < 0) {
     diffTime = diffTime + MS_IN_DAY
 }
 
+// First quote
 console.log(`[${currentTime.toISOString()}] Posting first quote...`);
 postQuote()
 
