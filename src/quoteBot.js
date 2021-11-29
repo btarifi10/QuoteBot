@@ -4,6 +4,7 @@ const TwitterApi = require('twitter-api-v2').TwitterApi;
 const { getRandomQuote } = require("./quoteService")
 
 const MS_IN_DAY = 24*60*60*1000;
+const MS_IN_6_HOURS = 6*60*60*1000;
 // Create new twit instance
 const twitterClient = new TwitterApi(
     {appKey: config.consumer_key,
@@ -22,8 +23,10 @@ async function postQuote() {
 }
 
 function startQuoteBot() {
-    postQuote()
-    setInterval(postQuote, MS_IN_DAY)
+    setInterval(() => {
+        postQuote()
+        setTimeout(postQuote, MS_IN_6_HOURS)
+    }, MS_IN_DAY)
 }
 
 // Post a quote daily
