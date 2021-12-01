@@ -66,4 +66,4 @@ setInterval(() => {
   if (timeNow.getHours() > 9 || timeNow.getHours() < 17) {
     http.get(HEROKU_SITE);
   }
-}, MS_IN_HOUR/2);
+}, MS_IN_HOUR/3);
